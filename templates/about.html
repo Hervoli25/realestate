@@ -1,3 +1,133 @@
-{% extends 'base.html' %} {% block content %}
-<h1>About</h1>
+{% extends 'base.html' %} {% block content %} {% load static %}
+<!-- About -->
+<section id="about" class="py-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<h1 class="display-4">Welcome to BT Real Estate</h1>
+				<p class="lead">Your Trusted Partner in Finding Your Dream Home</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Breadcrumb -->
+<section id="bc" class="mt-3">
+	<div class="container">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item">
+					<a href="{% url 'index' %}"> <i class="fas fa-home"></i> Home</a>
+				</li>
+				<li class="breadcrumb-item active">About</li>
+			</ol>
+		</nav>
+	</div>
+</section>
+
+<!-- Mission Statement -->
+<section id="mission" class="py-4">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<h2>Our Mission: Helping You Find Your Perfect Home</h2>
+				<p class="lead">
+					At BT Real Estate, we are dedicated to making your home-buying
+					experience effortless and rewarding.
+				</p>
+				<img
+					src="{% static 'img/about.jpg' %}"
+					alt="About Us"
+					class="img-fluid mt-4"
+				/>
+				<p class="mt-4">
+					We understand that finding the right home is a life-changing decision.
+					Our team of experts is committed to providing you with the highest
+					level of service and guidance throughout the entire process. Whether
+					you're a first-time buyer or an experienced homeowner, we're here to
+					make your real estate dreams a reality.
+				</p>
+			</div>
+			<div class="col-md-4">
+				<div class="card">
+					<img
+						class="card-img-top"
+						src="assets/img/realtors/kyle.jpg"
+						alt="Kyle Brown"
+					/>
+					<div class="card-body">
+						<h5 class="card-title">Meet Our Realtor</h5>
+						<h6 class="text-secondary">Kyle Brown</h6>
+						<p class="card-text">
+							Kyle Brown is our dedicated realtor, recognized for excellence in
+							the industry. With years of experience and a deep understanding of
+							the local market, Kyle is your trusted partner in finding the
+							perfect home.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Our Commitment -->
+<section id="commitment" class="bg-dark text-white text-center">
+	<div class="container">
+		<h2 class="display-4">Our Commitment to You</h2>
+		<h4>We're with You Every Step of the Way</h4>
+		<hr />
+		<a href="listings.html" class="btn btn-secondary text-white btn-lg"
+			>Explore Our Listings</a
+		>
+	</div>
+</section>
+
+<!-- Meet the Team -->
+<section id="team" class="py-5">
+	<div class="container">
+		<h2 class="text-center">Meet Our Team</h2>
+		<div class="row text-center">
+			<div class="col-md-4">
+				<img
+					src="assets/img/realtors/kyle.jpg"
+					alt="Kyle Brown"
+					class="rounded-circle mb-3"
+				/>
+				<h4>Kyle Brown</h4>
+				<p class="text-success">
+					<i class="fas fa-award text-success mb-3"></i> Realtor
+				</p>
+				<hr />
+				<p><i class="fas fa-phone"></i> (555)-555-5555</p>
+				<p><i class="fas fa-envelope-open"></i> kyle@btrealestate.co</p>
+			</div>
+			<div class="col-md-4">
+				<img
+					src="assets/img/realtors/mark.jpg"
+					alt="Mark Hudson"
+					class="rounded-circle mb-3"
+				/>
+				<h4>Mark Hudson</h4>
+				<p class="text-success">Realtor</p>
+				<hr />
+				<p><i class="fas fa-phone"></i> (444)-444-4444</p>
+				<p><i class="fas fa-envelope-open"></i> mark@btrealestate.co</p>
+			</div>
+			<div class="col-md-4">
+				<img
+					src="assets/img/realtors/jenny.jpg"
+					alt="Jenny Johnson"
+					class="rounded-circle mb-3"
+				/>
+				<h4>Jenny Johnson</h4>
+				<p class="text-success">Realtor</p>
+				<hr />
+				<p><i class="fas fa-phone"></i> (333)-333-3333</p>
+				<p><i class="fas fa-envelope-open"></i> jenny@btrealestate.co</p>
+			</div>
+		</div>
+	</div>
+</section>
+
 {% endblock %}
