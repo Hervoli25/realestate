@@ -1,10 +1,9 @@
 from multiprocessing import context
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Listing
 
 
 # Create your views here.
-
 
 def index(request):
     listings = Listing.objects.all()
@@ -15,7 +14,8 @@ def index(request):
     return render(request, 'listings/listings.html', context)
 
 
-def listing(request):
+def listing(request, listing_id):
+
     return render(request, 'listings/listing.html')
 
 
