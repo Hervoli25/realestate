@@ -1,4 +1,18 @@
 {% extends 'base.html' %} {% block content %} {% load static %}
+<style>
+	.description-wrapper {
+		overflow: hidden;
+		max-height: 200px;
+		transition: max-height 0.3s ease-in-out;
+	}
+
+	.read-more {
+		display: block;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+	}
+</style>
 <!-- About -->
 <section id="about" class="py-5">
 	<div class="container">
@@ -59,7 +73,10 @@
 					<div class="card-body">
 						<h5 class="card-title">Meet Our Realtor</h5>
 						<h6 class="text-secondary">{{ realtor.name }}</h6>
-						<p class="card-text">{{ realtor.description }}</p>
+						<div class="description-wrapper">
+							<p class="card-text">{{ realtor.description }}</p>
+							<button class="read-more">Read More</button>
+						</div>
 					</div>
 				</div>
 				{% endfor %} {% endif %}
@@ -110,5 +127,24 @@
 		</div>
 	</div>
 </section>
+<script>
+	var buttons = document.querySelectorAll('.read-more');
+
+	buttons.forEach(function (button) {
+		button.addEventListener('click', function () {
+			var descriptionWrapper = this.parentElement.querySelector(
+				'.description-wrapper'
+			);
+			if (descriptionWrapper.style.maxHeight) {
+				descriptionWrapper.style.maxHeight = null;
+				this.textContent = 'Read More';
+			} else {
+				descriptionWrapper.style.maxHeight =
+					descriptionWrapper.scrollHeight + 'px';
+				this.textContent = 'Read Less';
+			}
+		});
+	});
+</script>
 
 {% endblock %}
