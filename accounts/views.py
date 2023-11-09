@@ -1,9 +1,13 @@
+from audioop import reverse
 from typing import get_overloads
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.http import HttpResponse  # Import HttpResponse
 from contacts.models import Contact
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import views as auth_views
+from django.urls import reverse_lazy
 
 
 def register(request):
@@ -79,3 +83,28 @@ def dashboard(request):
         'contacts': user_contacts
     }
     return render(request, 'accounts/dashboard.html', context)
+
+
+# View for the password reset page
+class CustomPasswordResetView(auth_views.PasswordResetView):
+    template_name = 'accounts/password_reset.html'
+    email_template_name = 'accounts/password_reset_email.html'
+    subject_template_name = 'accounts/password_reset_subject.txt'
+    success_url = reverse_lazy('password_reset_done')
+
+
+# View for the password reset done page
+class CustomPasswordResetDoneView(auth_views.PasswordResetDoneView):
+    template_name = 'accounts/password_reset_done.html'
+
+# View for the password reset confirmation page
+
+
+class CustomPasswordResetConfirmView(auth_views.PasswordResetConfirmView):
+    template_name = 'accounts/password_reset_confirm.html'
+
+# View for the password reset complete page
+
+
+class CustomPasswordResetCompleteView(auth_views.PasswordResetCompleteView):
+    template_name = 'accounts/password_reset_complete.html'

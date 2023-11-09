@@ -157,6 +157,10 @@ MESSAGE_TAGS = {
 
 }
 
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
 # Email config
 
 # Default primary key field type
